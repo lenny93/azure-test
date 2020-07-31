@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: python test.py
+- script: choco install msys2
   displayName: 'Run a one-line script'
 
 - script: |
