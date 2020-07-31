@@ -10,10 +10,11 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: choco install msys2
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.6' 
+    addToPath: true 
+    architecture: 'x64' # Options: x86, x64 (this argument applies only on Windows agents)
+    
+- script: python test.py
   displayName: 'Run a multi-line script'
